@@ -1,12 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Hello from "./components/Hello";
+import App1 from "@/components/App1";
 
 const myh1 = React.createElement(
   "h1", // 这里必须用合法的html标签，而不能用自定义的React组件名
   { title: "this is title", id: "myh1" },
   "this is content",
-  <Hello />
+  <App1 />
 );
 
 const dog = {
@@ -17,8 +17,8 @@ const dog = {
 };
 const myDiv1 = (
   <div>
-    {<Hello name={dog.name} age={dog.age} gender={dog.gender} />}
-    <Hello {...dog} />
+    {<App1 name={dog.name} age={dog.age} gender={dog.gender} />}
+    <App1 {...dog} />
     {myh1}
   </div>
 );

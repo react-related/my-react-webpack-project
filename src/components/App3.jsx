@@ -1,4 +1,4 @@
-// Hook写法
+// Hook写法方式
 import React, { useState, useEffect } from "react";
 
 export default function mainApp() {

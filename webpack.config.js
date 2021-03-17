@@ -16,9 +16,12 @@ module.exports = {
     filename: "bundle.js",
     path: path.join(__dirname, "dist"),
   },
-  // 下述扩展名在import时可以不写，会被按如下顺序自动匹配补全
   resolve: {
+    // 下述扩展名在import时可以不写，会被按如下顺序自动匹配补全
     extensions: [".wasm", ".mjs", ".js", ".json", ".jsx"],
+    alias: {
+      "@": path.join(__dirname, "./src"),
+    },
   },
   plugins: [
     htmlPlugin,
