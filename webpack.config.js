@@ -12,7 +12,11 @@ module.exports = {
   mode: "development",
   // TODO: 这个dev.js有什么实质用处？与hot参数没看到区别。
   entry: ["./src/index.js", "./src/dev.js"], // 入口文件默认为src/index.js，打包文件默认为dist/main.js
-  // TODO: 这个配置的作用是什么？
+  output: {
+    filename: "bundle.js",
+    path: path.join(__dirname, "dist"),
+  },
+  // 下述扩展名在import时可以不写，会被按如下顺序自动匹配补全
   resolve: {
     extensions: [".wasm", ".mjs", ".js", ".json", ".jsx"],
   },
@@ -30,10 +34,17 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            // babelrc: false, // 是否使用.babelrc文件中的配置与presets融合，默认为true
+            // babelrc: true, // 是否使用.babelrc文件中的配置与presets融合，默认为true
             presets: [], // 需要用require.resolve('xxx')方式引入包，作为对.babelrc的差分补充
             cacheDirectory: true,
           },
+        },
+      },
+      {
+        test: /\.html$/i,
+        exclude: "/node_module/",
+        use: {
+          loader: "html-loader",
         },
       },
       // {
