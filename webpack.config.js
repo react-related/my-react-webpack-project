@@ -20,6 +20,7 @@ module.exports = {
     // 下述扩展名在import时可以不写，会被按如下顺序自动匹配补全
     extensions: [".wasm", ".mjs", ".js", ".json", ".jsx"],
     alias: {
+      // 引入包时推荐使用@的绝对路径写法替代相对路径写法，虽然没有了IDE的智能提示，但在组件搬迁过程中能避免相对路径造成的问题
       "@": path.join(__dirname, "./src"),
     },
   },
@@ -50,10 +51,10 @@ module.exports = {
           loader: "html-loader",
         },
       },
-      // {
-      //   test: /\.css$/,
-      //   use: ["style-loader", "css-loader"],
-      // },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader?modules"], // 打包处理css的第三方loader，先执行css-loader再执行style-loader
+      },
     ],
   },
   devtool: "cheap-module-source-map", // sourcemap调测代码
