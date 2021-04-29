@@ -53,6 +53,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        // TODO: &localIdentName=[path][name]-[local]-[hash:5] 通过option定制css模块导入的前缀
         use: ["style-loader", "css-loader?modules"], // 打包处理css的第三方loader，先执行css-loader再执行style-loader
       },
     ],

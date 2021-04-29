@@ -1,5 +1,7 @@
 .title {
   color: red;
+  text-align: center;
+  font-weight: 200;
 }
 .item {
   border: 1px dashed #ccc;
@@ -10,4 +12,9 @@
 .user,
 .content {
   font-size: 12px;
+}
+
+/* :global()可以让css不被模块化 */
+:global(.test) {
+  font-style: italic;
 }
