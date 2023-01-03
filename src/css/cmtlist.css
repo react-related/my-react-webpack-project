@@ -1,0 +1,20 @@
+.title {
+  color: red;
+  text-align: center;
+  font-weight: 200;
+}
+.item {
+  border: 1px dashed #ccc;
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px #ccc;
+}
+.user,
+.content {
+  font-size: 12px;
+}
+
+/* :global()可以让css不被模块化 */
+:global(.test) {
+  font-style: italic;
+}
